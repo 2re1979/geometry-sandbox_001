@@ -2,54 +2,58 @@ import { Shape, ExtrudeGeometry, Mesh } from "three";
 import { profileTestMaterial } from "../materials";
 
 // parameters
-const extrusionDepthExample = 600;
+const extrusionDepthExample = 10;
 
-function createBottomFrameProfile() {
+function createProfileP1749() {
   const shape = new Shape();
   shape.moveTo(0, 0);
-  shape.lineTo(0, 34);
-  shape.lineTo(67, 40.4);
-  shape.lineTo(67, 0);
-  shape.lineTo(92.8, 0);
-  shape.lineTo(92.8, -14.8);
-  shape.lineTo(87.8, -15.6);
-  shape.lineTo(87.8, -73.3);
-  shape.lineTo(77, -73.3);
-  shape.lineTo(68, -29);
-  shape.lineTo(23.8, -17.2);
-  shape.lineTo(23.8, -11.4);
+  shape.lineTo(3, 0);
+  shape.lineTo(3, 14);
+  shape.lineTo(17, 14);
+  shape.lineTo(17, 0);
+  shape.lineTo(20, 0);
+  shape.lineTo(20, 30);
+  shape.lineTo(18, 30);
+  shape.lineTo(18, 17);
+  shape.lineTo(2, 17);
+  shape.lineTo(2, 30);
+  shape.lineTo(0, 30);
   shape.lineTo(0, 0);
 
   return shape;
 }
 
-function createSideFrameProfile() {
+function createProfileP1609() {
   const shape = new Shape();
   shape.moveTo(0, 0);
-  shape.lineTo(0, 28.9);
-  shape.lineTo(62.7, 35.5);
-  shape.lineTo(62.7, 18.5);
-  shape.lineTo(92.8, 18.5);
-  shape.lineTo(92.8, 0);
+  shape.lineTo(3, 0);
+  shape.lineTo(3, 14);
+  shape.lineTo(17, 14);
+  shape.lineTo(17, 0);
+  shape.lineTo(20, 0);
+  shape.lineTo(20, 50);
+  shape.lineTo(18, 50);
+  shape.lineTo(18, 17);
+  shape.lineTo(2, 17);
+  shape.lineTo(2, 50);
+  shape.lineTo(0, 50);
   shape.lineTo(0, 0);
 
   return shape;
 }
-
 
 export function createExtrudedProfile() {
-
-  const shape = createBottomFrameProfile();
-  // const shape = createSideFrameProfile();
+  //const shape = createProfileP1749();
+  const shape = createProfileP1609();
 
   const extrudeSettings = {
     depth: extrusionDepthExample,
-    bevelEnabled: false
+    bevelEnabled: false,
   };
 
   const geometry = new ExtrudeGeometry(shape, extrudeSettings);
   const material = profileTestMaterial;
-  
+
   const mesh = new Mesh(geometry, material);
 
   return mesh;
