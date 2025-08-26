@@ -2,10 +2,10 @@ import { PerspectiveCamera } from "three";
 
 export function setupMainCamera(aspect){
   const camera = new PerspectiveCamera(50, aspect, 1, 100000);
-  const cameraDist = 2000;
+  const cameraDist = 500;
   camera.position.set(
-    cameraDist / 2,
-    cameraDist / 4,
+    cameraDist / 10,
+    cameraDist / 10,
     cameraDist / 2
   )
 
